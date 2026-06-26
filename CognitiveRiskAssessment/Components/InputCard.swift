@@ -12,20 +12,34 @@ struct InputCard<Content: View>: View {
 
     var body: some View {
 
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 10) {
 
-            Text(title)
-                .font(.subheadline)
-                .fontWeight(.medium)
-                .foregroundStyle(AppColors.secondaryText)
+            // Title row
+            HStack {
+                Text(title)
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(AppColors.secondaryText)
 
+                Spacer()
+            }
+
+            // Content
             content
+                .padding(10)
+                .background(Color.black.opacity(0.03))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
 
         }
-        .padding()
+        .padding(14)
         .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(AppColors.card)
+            RoundedRectangle(cornerRadius: 16)
+                .fill(Color.white)
+                .shadow(color: Color.black.opacity(0.06), radius: 6, x: 0, y: 3)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 16)
+                .stroke(Color.gray.opacity(0.08), lineWidth: 1)
         )
     }
 }

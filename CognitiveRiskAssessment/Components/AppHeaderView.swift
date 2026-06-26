@@ -4,32 +4,31 @@ struct AppHeaderView: View {
 
     var body: some View {
 
-        VStack(spacing: 12) {
+        VStack(spacing: 16) {
 
             Image(systemName: "brain.head.profile")
-                .font(.system(size: 52))
+                .font(.system(size: 54, weight: .light))
                 .foregroundStyle(AppColors.teal)
 
-            Text("Cognitive Risk Assessment")
-                .font(.title)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.center)
+            VStack(spacing: 6) {
 
-            Text("UNCW School of Nursing")
-                .font(.headline)
+                Text("Cognitive Risk Assessment")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+
+                Text("Complete the assessment below to estimate cognitive risk.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+            }
+
+            Text("University of North Carolina Wilmington")
+                .font(.footnote)
                 .foregroundStyle(AppColors.navy)
-
-            Text("Complete the assessment below to estimate cognitive risk.")
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 20)
-
+                .fontWeight(.medium)
         }
-        .padding(.vertical, 10)
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 20)
     }
-}
-
-#Preview {
-    AppHeaderView()
 }
